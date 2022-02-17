@@ -11,6 +11,7 @@ class ViewController: UIViewController {
 
     @IBAction func getJoke(_ sender: Any) {
         makeRequest()
+        jokeText.text = dataText
     }
     
     @IBOutlet weak var jokeText: UILabel!
@@ -19,11 +20,13 @@ class ViewController: UIViewController {
         jokeText.text = "Press get joke"
     }
 }
+var dataText: String = " "
 func makeRequest(){
     var request = URLRequest(url: URL(string: "https://v2.jokeapi.dev/joke/Any")!)
     let task = URLSession.shared.dataTask(with: request) { data, respons, error in
-        print(String(decoding: data!, as: UTF8.self))
+        dataText = String(decoding: data!, as: UTF8.self)
         print(error)
+        print(dataText)
     }
     task.resume()
 }

@@ -9,31 +9,21 @@ import UIKit
 
 class ViewController: UIViewController {
 
-//   
-//    @IBOutlet weak var textField: UILabel!
-//    
-//   @IBAction func request(_ sender: Any) {
-////        makeRequest()
-//        //textField.text = "AAAAAAAA"
-//    }
+    @IBAction func getJoke(_ sender: Any) {
+        makeRequest()
+    }
     
-    
+    @IBOutlet weak var jokeText: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        jokeText.text = "Press get joke"
     }
-
-//    private func makeRequest() {
-//        var request = URLRequest(url:URL(string: "https://v2.jokeapi.dev/joke/Any")!)
-////        request.httpMethod = "GET"
-////        request.allHTTPHeaderFields = ["AuthToken" : "nil"]
-////        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-////            if let data = data, let joke = try? JSONDecoder().decode(Joke.self, from: data) {
-////                print(joke.setup)
-////          }
-////        }
-////        task.resume()
-//    }
-//}
-//
+}
+func makeRequest(){
+    var request = URLRequest(url: URL(string: "https://v2.jokeapi.dev/joke/Any")!)
+    let task = URLSession.shared.dataTask(with: request) { data, respons, error in
+        print(String(decoding: data!, as: UTF8.self))
+        print(error)
+    }
+    task.resume()
 }

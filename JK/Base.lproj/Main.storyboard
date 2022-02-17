@@ -17,15 +17,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yil-nn-Nc2">
-                                <rect key="frame" x="168.5" y="806" width="77.5" height="31"/>
+                                <rect key="frame" x="168.5" y="781" width="77.5" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="Get joke"/>
                                 <connections>
                                     <action selector="getJoke:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iDE-U3-Fhc"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="25" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gbd-83-u4l">
-                                <rect key="frame" x="0.0" y="69" width="414" height="687"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="25" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gbd-83-u4l">
+                                <rect key="frame" x="0.0" y="438" width="414" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Swi-WD-T3D">
+                                <rect key="frame" x="0.0" y="119" width="75" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot;&quot;&quot;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wAD-8L-5vG">
+                                <rect key="frame" x="75" y="119" width="23.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -34,14 +46,20 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Gbd-83-u4l" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="3Qm-uF-1pd"/>
-                            <constraint firstItem="Yil-nn-Nc2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="APZ-4p-g5x"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Yil-nn-Nc2" secondAttribute="bottom" constant="25" id="Bsh-f2-GLX"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Gbd-83-u4l" secondAttribute="trailing" id="EZb-9Z-pDH"/>
-                            <constraint firstItem="Gbd-83-u4l" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="25" id="Ofr-ea-nDn"/>
+                            <constraint firstItem="Gbd-83-u4l" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="46w-gm-fbE"/>
+                            <constraint firstItem="Gbd-83-u4l" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="9j6-wc-rZ3"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Gbd-83-u4l" secondAttribute="trailing" id="Bj4-pq-tDw"/>
+                            <constraint firstItem="wAD-8L-5vG" firstAttribute="leading" secondItem="Swi-WD-T3D" secondAttribute="trailing" id="GfE-Gw-c4i"/>
+                            <constraint firstItem="Yil-nn-Nc2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Q2r-sF-uSo"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Yil-nn-Nc2" secondAttribute="bottom" constant="50" id="TCV-Bt-CyM"/>
+                            <constraint firstItem="Swi-WD-T3D" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="75" id="VIM-AY-NHu"/>
+                            <constraint firstItem="wAD-8L-5vG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="75" id="WII-g3-J2W"/>
+                            <constraint firstItem="Gbd-83-u4l" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="hp5-Ve-ebS"/>
+                            <constraint firstItem="Swi-WD-T3D" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="nwo-Fp-ggg"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="categoryLabel" destination="wAD-8L-5vG" id="AI1-Rn-T0h"/>
                         <outlet property="jokeText" destination="Gbd-83-u4l" id="M9p-U0-8Zq"/>
                     </connections>
                 </viewController>

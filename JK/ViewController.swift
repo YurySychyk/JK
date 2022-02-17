@@ -12,8 +12,12 @@ class ViewController: UIViewController {
     @IBAction func getJoke(_ sender: Any) {
         makeRequest()
         jokeText.text = dataText
+        categoryLabel.text = categoryText
+        
+        
     }
     
+    @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var jokeText: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,12 +25,14 @@ class ViewController: UIViewController {
     }
 }
 var dataText: String = " "
+var categoryText: String = " "
 func makeRequest(){
-    var request = URLRequest(url: URL(string: "https://v2.jokeapi.dev/joke/Any")!)
+    let request = URLRequest(url: URL(string: "https://v2.jokeapi.dev/joke/Any")!)
     let task = URLSession.shared.dataTask(with: request) { data, respons, error in
-        dataText = String(decoding: data!, as: UTF8.self)
-        print(error)
-        print(dataText)
+        if let data = data, let joke = try? JSONDecoder().decode(Joke.self, from: data) {
+            dataText = joke.setup
+            categoryText = joke.category
+        }
     }
     task.resume()
 }
